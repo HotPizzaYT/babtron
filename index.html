@@ -69,7 +69,9 @@
     light.intensity = 0.7;
 
     // Our built-in 'sphere' shape.
-    var sphere = BABYLON.SceneLoader.Append("./", "man.obj", scene);
+    var sphere = BABYLON.SceneLoader.Append("./", "man.obj", scene, function(scene){
+    console.log("GAMEINF: man.obj loaded into the scene.");
+    });
 
     // Move the sphere upward 1/2 its height
     sphere.position.y = 1;
