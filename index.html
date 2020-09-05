@@ -52,14 +52,17 @@
         var createScene = function () {
     // This creates a basic Babylon Scene object (non-mesh)
     var scene = new BABYLON.Scene(engine);
+            window.gscene = scene;
 
     // This creates and positions a free camera (non-mesh)
     var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+            window.gcam = camera;
 
     // This targets the camera to scene origin
     camera.setTarget(BABYLON.Vector3.Zero());
 
     // This attaches the camera to the canvas
+            // No, I mean, yes.
     camera.attachControl(canvas, true);
 
     // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
@@ -71,6 +74,7 @@
     // Our built-in 'sphere' shape.
     var sphere = BABYLON.SceneLoader.Append("./", "man.obj", scene, function(scene){
     console.log("GAMEINF: man.obj loaded into the scene.");
+        window.sphereThis = this;
     });
 
     // Move the sphere upward 1/2 its height
